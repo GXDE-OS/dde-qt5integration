@@ -1,0 +1,57 @@
+Source: dde-qt5integration
+Section: libs
+Priority: optional
+Maintainer: Debian Deepin Packaging Team <pkg-deepin-devel@lists.alioth.debian.org>
+Uploaders:
+ Boyuan Yang <byang@debian.org>,
+ Yanhao Mo <yanhaocs@gmail.com>,
+ Arun Kumar Pariyar <openarungeek@gmail.com>,
+ Hu Feng <hufeng@uniontech.com>,
+Build-Depends:
+ debhelper-compat (= 13),
+ libdtkgui-dev (>= 5.5.17~),
+ libdtkwidget-dev (>= 5.5.17~),
+ libegl1-mesa-dev,
+ libfontconfig1-dev,
+ libfreetype6-dev,
+ libglib2.0-dev,
+ libgtest-dev,
+ libmtdev-dev,
+ libqt5svg5-dev,
+ libqt5x11extras5-dev,
+ libqt5xdg-dev,
+ libqt5xdgiconloader-dev (>= 3.2.0~),
+ libxrender-dev,
+ pkg-config,
+ qt5-qmake,
+ qtbase5-dev,
+ qtbase5-private-dev,
+Rules-Requires-Root: no
+Standards-Version: 4.6.1
+Homepage: https://github.com/linuxdeepin/qt5integration
+Vcs-Git: https://salsa.debian.org/pkg-deepin-team/dde-qt5integration.git
+Vcs-Browser: https://salsa.debian.org/pkg-deepin-team/dde-qt5integration
+
+Package: dde-qt5integration
+Architecture: any
+Provides:
+ dde-qt5integration5,
+ dde-qt5integration5.5,
+ libqt5deepintheme-plugin,
+Conflicts:
+ libqt5deepintheme-plugin,
+Depends:
+ dde-qt5xcb-plugin | qt5dxcb-plugin,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Multi-Arch: same
+Description: Qt5 theme integration for Deepin application
+ Deepin's qt5integration provides library plugins used by Deepin
+ application and Deepin Desktop Environment. It implements many extra
+ features on top of stock Qt, include hijacking window decoration /
+ shadow painting, better support for cursors under HiDPI, retrieval of
+ full list of windows under current workspace, support for window of
+ arbitrary shape with anti-aliasing and so on, to make Qt5 application
+ and Deepin Desktop Environment more user-friendly.
+ .
+ This package is part of DDE (Deepin Desktop Environment).

@@ -1,0 +1,220 @@
+dde-qt5integration (5.5.23-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 28 Jun 2022 11:01:05 -0400
+
+dde-qt5integration (5.5.20-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 14 Apr 2022 10:14:02 -0400
+
+dde-qt5integration (5.5.17-2) unstable; urgency=medium
+
+  * debian/rules: Override dh_auto_configure with
+    BASED_DTK_DIR=based-dtk to fix app crashes.
+
+ -- Arun Kumar Pariyar <openarungeek@gmail.com>  Tue, 22 Mar 2022 02:08:13 +0545
+
+dde-qt5integration (5.5.17-1) unstable; urgency=medium
+
+  * New upstream version 5.5.17. (Closes: #1008006)
+  * debian/patches: Drop patches, no longer needed.
+  * debian/copyright: Update copyright information.
+  * Update debian/rules.
+
+ -- Arun Kumar Pariyar <openarungeek@gmail.com>  Sun, 20 Mar 2022 21:10:08 +0545
+
+dde-qt5integration (5.5.8-1) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 09 Nov 2021 20:26:20 -0500
+
+dde-qt5integration (5.5.8-1~exp1) experimental; urgency=medium
+
+  [ Boyuan Yang ]
+  * New upstream version 5.5.8.
+  * debian/rules: Only install unversioned .so files.
+  * debian/upstream/metadata: Minor fix.
+  * debian/control: Tighten versioned build dependencies (dtk libs).
+  * debian/patches: Temporarily disable googletest for now.
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 09 Nov 2021 08:06:32 -0500
+
+dde-qt5integration (5.1.5-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+
+  [ Hu Feng ]
+  * New upstream release 5.1.5.
+  * debian/control:
+    + Add qt5-qmake to Build-Depends.
+    + Add Hu Feng to Uploaders.
+    + Tighten version of libdtkgui-dev to (>= 5.4~)
+    + Tighten version of libdtkwidget-dev to (>= 5.4~)
+    + Delete libgtk2.0-dev in Build-Depends.
+
+ -- Boyuan Yang <byang@debian.org>  Sat, 01 May 2021 15:20:43 -0400
+
+dde-qt5integration (5.1.0.5-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * debian/control:
+    + Bump Standards-Version to 4.5.1.
+    + Tighten version of libdtkwidget-dev to (>= 5.2~)
+  * debian/rules: Drop DEB_LDFLAGS_MAINT_APPEND.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit,
+    Repository, Repository-Browse.
+
+ -- Arun Kumar Pariyar <openarungeek@gmail.com>  Wed, 09 Dec 2020 20:48:46 +0545
+
+dde-qt5integration (5.1.0.5-1~exp1) experimental; urgency=medium
+
+  [ Arun Kumar Pariyar ]
+  * New upstream release 5.1.0.5.
+  * debian/control:
+    + Add libdtkgui-dev to Build-Depends.
+    + Add qt5dxcb-plugin | dde-qt5dxcb-plugin in binary package Depends.
+    + Add Arun Kumar Pariyar to Uploaders.
+    + Declare compatible with libdtkwidget-dev (>=5)~.
+  * debian/copyright: Update license information.
+  * debian/patches: Drop patches, no longer required.
+  * debian/rules: Add CHANGELOG.md to override_dh_installchangelogs.
+
+  [ Boyuan Yang ]
+  * debian/control: Declare compatible with libdtkwidget-dev (>=5)~.
+
+ -- Arun Kumar Pariyar <openarungeek@gmail.com>  Fri, 06 Nov 2020 23:16:38 +0545
+
+dde-qt5integration (5.0.0-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Backport upstream patch to fix build with Qt 5.15 (closes: #972676).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 25 Oct 2020 13:21:15 +0300
+
+dde-qt5integration (5.0.0-2) unstable; urgency=medium
+
+  [ Dmitry Shachnev ]
+  * Backport upstream patch to fix build with Qt 5.14 (closes: #960952).
+
+  [ Boyuan Yang ]
+  * debian/control: Bump debhelper compat to v13.
+  * debian/control: Bump Standards-Version to 4.5.0.
+
+ -- Boyuan Yang <byang@debian.org>  Sat, 06 Jun 2020 11:27:34 -0400
+
+dde-qt5integration (5.0.0-1) unstable; urgency=medium
+
+  * New upstream release 5.0.0.
+  * debian/control:
+    + Bump Standards-Version to 4.4.0.
+    + Declare compatible only with dtkwidget (>= 2.1~).
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 24 Sep 2019 13:48:27 -0400
+
+dde-qt5integration (0.3.7.2-1) unstable; urgency=medium
+
+  * New upstream version 0.3.7.2.
+  * debian/control:
+    + Build-depend on debhelper-compat (= 12) instead of using
+      debian/compat file.
+    + Use Rules-Requires-Root: no.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 13 Jan 2019 10:00:13 -0500
+
+dde-qt5integration (0.3.7.1-1) unstable; urgency=medium
+
+  * New upstream version 0.3.7.1.
+  * debian/control: Bump Standards-Version to 4.3.0.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 24 Dec 2018 07:11:45 +0800
+
+dde-qt5integration (0.3.7-1) unstable; urgency=medium
+
+  * New upstream version 0.3.7.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 10 Dec 2018 12:48:12 -0500
+
+dde-qt5integration (0.3.6-1) unstable; urgency=medium
+
+  * New upstream version 0.3.6.
+  * Rebuild against Qt 5.11.2.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 14 Nov 2018 21:06:29 -0500
+
+dde-qt5integration (0.3.5-1) unstable; urgency=medium
+
+  * New upstream version 0.3.5.
+  * debian/control:
+    + Add new build-dependency libxrender-dev.
+    + Update my uploader email address and use the @debian.org one.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 02 Sep 2018 21:42:34 -0400
+
+dde-qt5integration (0.3.4-1) unstable; urgency=medium
+
+  * New upstream release 0.3.4.
+  * Bump Standards-Version to 4.2.1 (no changes needed).
+
+ -- Boyuan Yang <073plan@gmail.com>  Sun, 26 Aug 2018 15:55:35 -0400
+
+dde-qt5integration (0.3.3-1) unstable; urgency=medium
+
+  * New upstream version 0.3.3
+  * Bump Standards-Version to 4.2.0 (no changes needed).
+
+ -- Yanhao Mo <yanhaocs@gmail.com>  Thu, 09 Aug 2018 10:28:40 +0800
+
+dde-qt5integration (0.3.2-1) unstable; urgency=medium
+
+  * New upstream version 0.3.2 (Closes: #905131)
+
+ -- Yanhao Mo <yanhaocs@gmail.com>  Wed, 01 Aug 2018 11:23:53 +0800
+
+dde-qt5integration (0.3.1-1) unstable; urgency=medium
+
+  * New upstream version 0.3.1
+  * Bump Standards-Version to 4.1.5 (no changes needed).
+  * d/control: Add new uploader Yanhao Mo <yanhaocs@gmail.com>.
+  * d/patches: Drop patches, no longer needed.
+
+ -- Yanhao Mo <yanhaocs@gmail.com>  Sun, 22 Jul 2018 10:27:58 +0800
+
+dde-qt5integration (0.3.0-2) unstable; urgency=medium
+
+  * Revert maintainer address to pkg-deepin-devel@lists.alioth.debian.org.
+
+ -- Boyuan Yang <073plan@gmail.com>  Wed, 13 Jun 2018 22:43:21 +0800
+
+dde-qt5integration (0.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patch to fix include path for new libqt5xdgiconloader-dev
+    in repository.
+  * d/control: Apply version requirement for libqt5xdgiconloader-dev.
+
+ -- Boyuan Yang <073plan@gmail.com>  Sat, 26 May 2018 10:59:19 +0800
+
+dde-qt5integration (0.2.10-2) unstable; urgency=medium
+
+  * Use team+pkg-deepin@tracker.debian.org in maintainer field.
+  * d/rules: Use "dh_missing --fail-missing".
+
+ -- Boyuan Yang <073plan@gmail.com>  Fri, 20 Apr 2018 17:13:48 +0800
+
+dde-qt5integration (0.2.10-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/watch: Add watch file.
+  * d/control: Bump Standards-Version to 4.1.4 (no changes needed).
+
+ -- Boyuan Yang <073plan@gmail.com>  Fri, 06 Apr 2018 10:08:23 +0800
+
+dde-qt5integration (0.2.8.3+git20180208-1) unstable; urgency=medium
+
+  * Initial release (Closes: #888814)
+
+ -- Boyuan Yang <073plan@gmail.com>  Sun, 11 Feb 2018 19:11:58 +0800
