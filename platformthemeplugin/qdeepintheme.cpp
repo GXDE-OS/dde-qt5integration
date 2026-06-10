@@ -23,6 +23,7 @@
 #undef private
 #include <private/qwindow_p.h>
 #include <private/qguiapplication_p.h>
+#include <private/qfactoryloader_p.h>
 #include <qpa/qwindowsysteminterface_p.h>
 #include <qpa/qplatformscreen.h>
 #include <qpa/qplatformcursor.h>
@@ -92,6 +93,14 @@ static void onIconThemeSetCallback()
 
         qApp->sendEvent(window, &update);
     }
+
+    // 刷新窗口图标
+    const QWindowList list = QGuiApplication::topLevelWindows();
+    for (int i = 0; i < list.size(); ++i) {
+        if (QWindow *window = list.at(i)) {
+           window->setIcon(window->icon());
+        }
+    }
 }
 
 static inline uint resolveMask(const QFont &f)
@@ -157,7 +166,11 @@ static void updateWindowGeometry(QWindow *w)
         return;
 
     if (w->property(DNOT_UPDATE_WINDOW_GEOMETRY).toBool()) {
-        QWindowSystemInterfacePrivate::GeometryChangeEvent gce(w, QHighDpi::fromNativePixels(w->handle()->geometry(), w)
+        QWindowSystemInterfacePrivate::GeometryChangeEvent gce(w
+                                                   #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 2)
+                                                               , QHighDpi::fromNativeWindowGeometry(w->handle()->geometry(), w)
+                                                   #endif
+                                                               , QHighDpi::fromNativePixels(w->handle()->geometry(), w)
                                                    #if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
                                                                , QRect()
                                                    #endif
@@ -656,6 +669,14 @@ const QPalette *QDeepinTheme::palette(QPlatformTheme::Palette type) const
     return &palette;
 }
 
+static QFont *createUnresolveFont(const QString &family, qreal pointSize)
+{
+    auto font = new QFont(family);
+    font->setPointSizeF(pointSize);
+    setResolveMask(*font, QFont::NoPropertiesResolved);
+    return font;
+}
+
 const QFont *QDeepinTheme::font(QPlatformTheme::Font type) const
 {
     if (!qApp->desktopSettingsAware())
@@ -667,12 +688,16 @@ const QFont *QDeepinTheme::font(QPlatformTheme::Font type) const
             QByteArray font_name = theme->fontName();
             qreal font_size = 0;
 
+            static QScopedPointer<QFont> sysFont;
             if (font_name.isEmpty()) {
                 font_name = theme->gtkFontName();
                 int font_size_index = font_name.lastIndexOf(' ');
 
-                if (font_size_index <= 0)
-                    break;
+                if (font_size_index <= 0) {
+                    const QFont *defaultFont = QGenericUnixTheme::font(type);
+                    sysFont.reset(createUnresolveFont(defaultFont->family(), defaultFont->pointSizeF()));
+                    return sysFont.data();
+                }
 
                 font_size = font_name.mid(font_size_index + 1).toDouble();
                 font_name = font_name.left(font_size_index);
@@ -684,13 +709,8 @@ const QFont *QDeepinTheme::font(QPlatformTheme::Font type) const
                 font_size = 10.5;
             }
 
-            static QScopedPointer<QFont> sysFont;
-
             // We need to re-contruct a new QFont each time, inorder to refresh font dpi
-            sysFont.reset(new QFont(QString()));
-            sysFont->setFamily(font_name);
-            sysFont->setPointSizeF(font_size);
-            setResolveMask(*sysFont, QFont::NoPropertiesResolved);
+            sysFont.reset(createUnresolveFont(font_name, font_size));
 
             return sysFont.data();
         }
@@ -700,8 +720,11 @@ const QFont *QDeepinTheme::font(QPlatformTheme::Font type) const
         if (DPlatformTheme *theme = appTheme()) {
             QByteArray font_name = theme->monoFontName();
 
+            static QScopedPointer<QFont> fixedFont;
             if (font_name.isEmpty()) {
-                break;
+                const QFont *defaultFont = QGenericUnixTheme::font(type);
+                fixedFont.reset(createUnresolveFont(defaultFont->family(), defaultFont->pointSizeF()));
+                return fixedFont.data();
             }
 
             qreal font_size = theme->fontPointSize();
@@ -710,13 +733,8 @@ const QFont *QDeepinTheme::font(QPlatformTheme::Font type) const
                 font_size = 10.5;
             }
 
-            static QScopedPointer<QFont> fixedFont;
-
             // We need to re-contruct a new QFont each time, inorder to refresh font dpi
-            fixedFont.reset(new QFont(QString()));
-            fixedFont->setFamily(font_name);
-            fixedFont->setPointSizeF(font_size);
-            setResolveMask(*fixedFont, QFont::NoPropertiesResolved);
+            fixedFont.reset(createUnresolveFont(font_name, font_size));
 
             return fixedFont.data();
         }

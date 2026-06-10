@@ -1,6 +1,6 @@
 # Maintainer: justforlxz <justforlxz@gmail.com>
 pkgname=deepin-qt5integration-git
-pkgver=5.1.12.r54.g732a237
+pkgver=6.7.43
 pkgrel=1
 sourcename=qt5integration
 sourcetars=("$sourcename"_"$pkgver".tar.xz)
@@ -23,7 +23,7 @@ build() {
 	cmake . -GNinja \
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_BUILD_TYPE=Release
+      	-DDTK5=ON
 	ninja
 }
 

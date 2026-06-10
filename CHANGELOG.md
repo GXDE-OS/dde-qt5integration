@@ -1,3 +1,307 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [6.7.43] - 2026-06-04
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+- Chore: New release 6.7.38
+- Chore: New release 6.7.39
+- Chore: New release 6.7.40
+- Chore: New release 6.7.41
+- New release 6.7.42 (#314)
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.42] - 2026-05-20
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+- Chore: New release 6.7.38
+- Chore: New release 6.7.39
+- Chore: New release 6.7.40
+- Chore: New release 6.7.41
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.41] - 2026-05-08
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+- Chore: New release 6.7.38
+- Chore: New release 6.7.39
+- Chore: New release 6.7.40
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.40] - 2026-04-23
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+- Chore: New release 6.7.38
+- Chore: New release 6.7.39
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.39] - 2026-04-09
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+- Chore: New release 6.7.38
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.38] - 2026-03-31
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+- Chore: New release 6.7.37
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.37] - 2026-03-25
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+- Chore: New release 6.7.36
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.36] - 2026-03-12
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+- Chore: New release 6.7.35
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+- Fix visual artifacts after deselecting list items at high DPI
+
+## [6.7.35] - 2026-03-05
+
+### Changed
+
+- Chore: New release 6.7.33
+- Chore: New release 6.7.34
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+
+## [6.7.34] - 2026-02-27
+
+### Changed
+
+- Chore: New release 6.7.33
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+- Adjust slider groove offset when no ticks are displayed
+
+## [6.7.33] - 2026-02-05
+
+### Fixed
+
+- Adjust scrollbar visibility based on system theme policy
+- Refresh window icons on icon theme change
+
+## [6.7.32] - 2026-01-22
+
+### Removed
+
+- Delete workflow call-synchronize-to-dtk6
+
+## [6.7.31] - 2026-01-06
+
+### Added
+
+- Add DTK6/Qt6 support and unified build profiles
+
+### Changed
+
+- Update debian compat level to 12
+
+### Removed
+
+- Remove debian/compat file
+
+## [5.7.30] - 2025-12-11
+
+## [5.7.28] - 2025-12-04
+
+## [5.7.27] - 2025-11-27
+
+### Removed
+
+- Remove repeated words
+
+## [5.7.26] - 2025-11-06
+
+### Changed
+
+- Chore: New release 5.7.25
+- 重绘滑动条滑块的焦点效果
+
+### Fixed
+
+- (cmake) Fix Qt version check variable name
+- 配合Qt删除_d_dtk_lineedit**属性
+- 修复combobox下拉按钮宽高不等, 还有按钮与编辑框不贴合的问题
+- 进度条圆角问题以及当进度为1时进度滑块未在进度槽中的问题
+- 修复搜索和combobox下拉框动效问题
+- 修复DTabBar边界和悬浮样式
+- 修复窗口菜单和窗口内容混为一体
+- 修复主窗口多次切换主题时偶发性崩溃
+- 调整按钮圆角,区分普通状态和在编辑框中的状态
+- 优化判断是否为combobox内按钮的方式
+- 修复live系统恢复页面文管对话框盘符显示不完整
+- 修复【notepadqq】顶部工具栏点击设置-首选项应用崩溃
+- 密码框与显示密码按钮高度不一致
+- 重启任务栏右键菜单概率不显示文字内容
+
+## [5.7.25] - 2025-10-30
+
+### Fixed
+
+- (cmake) Fix Qt version check variable name
+
+## [5.7.24] - 2025-10-16
+
+### Fixed
+
+- Fix scrollbar hide animation behavior
+- Compatibility with Qt 6.10
+- Adjust cmake conditions for <6.10 compatibility
+
+## [5.7.23] - 2025-09-25
+
+## [5.7.22] - 2025-09-04
+
+### Fixed
+
+- Fix: cannot build on Qt 6.9.1
+- Fix: FTBFS with Qt 6.9.2
+
+## [5.7.21] - 2025-08-14
+
+## [5.7.20] - 2025-07-31
+
+### Added
+
+- Add debian check workflow
+
+### Removed
+
+- Remove maybe_unused attribute and add Q_UNUSED
+
+## [5.7.19] - 2025-07-03
+
+### Added
+
+- Add security hardening flags to build process
+
+## [5.7.18] - 2025-06-27
+
+### Changed
+
+- Update workflow and package version
+
+## [5.7.17] - 2025-06-19
+
+### Changed
+
+- Support VERSION file
+- Add auto release workflow
+- Update .syncexclude
+
+### Fixed
+
+- Improve SVG icon cache validation
+
+### Removed
+
+- Remove unused linglong.yaml
+
 <a name="0.3.11"></a>
 ## 0.3.11 (2019-04-17)
 

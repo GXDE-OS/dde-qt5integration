@@ -4,27 +4,39 @@
 
 cmake_minimum_required(VERSION 3.13)
 
-set(DTK_VERSION
-  5.6.12
-  CACHE STRING "Project version"
-)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" FILE_VERSION)
+string(STRIP "${FILE_VERSION}" FILE_VERSION)
 
 project(
   qtintegration
-  VERSION ${DTK_VERSION}
+  VERSION ${FILE_VERSION}
   DESCRIPTION "Qt platform integration for DTK"
   HOMEPAGE_URL "https://github.com/linuxdeepin/qt5integration"
   LANGUAGES CXX C
 )
 
-option(BUILD_TESTS "Build tests" ON)
 option(ENABLE_COV "Enable code coverage" OFF)
 
-if(PROJECT_VERSION_MAJOR EQUAL 6)
-  set(VERSION_SUFFIX 6)
-  find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core)
+option(DTK5 "Build DTK5." ON)
+if(DTK5)
+    set(DTK_VERSION_MAJOR "5")
+    set(DTK_NAME_SUFFIX "")
 else()
-  set(VERSION_SUFFIX)
+    set(DTK_VERSION_MAJOR "6")
+    set(DTK_NAME_SUFFIX "6")
+endif()
+
+set(DTK_VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(DTK_VERSION_PATCH ${PROJECT_VERSION_PATCH})
+set(DTK_VERSION "${DTK_VERSION_MAJOR}.${DTK_VERSION_MINOR}.${DTK_VERSION_PATCH}")
+set(QT_VERSION_MAJOR ${DTK_VERSION_MAJOR})
+
+if(QT_VERSION_MAJOR EQUAL 6)
+  find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core)
+  if(QT_VERSION VERSION_GREATER_EQUAL 6.10)
+    find_package(Qt6 COMPONENTS CorePrivate GuiPrivate WidgetsPrivate REQUIRED)
+  endif()
+else()
   find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core)
 endif()
 
@@ -49,6 +61,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_LOWER)
 if(CMAKE_BUILD_TYPE_LOWER STREQUAL release)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 elseif(CMAKE_BUILD_TYPE_LOWER STREQUAL debug)
+  set(BUILD_TESTING ON)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -g")
 endif()
 
@@ -102,7 +115,7 @@ function(dtk_add_plugin)
   endif()
 endfunction()
 
-find_package(Dtk${VERSION_SUFFIX} REQUIRED COMPONENTS Widget)
+find_package(Dtk${DTK_NAME_SUFFIX} REQUIRED COMPONENTS Widget)
 
 option(ENABLE_QT_XDG_ICON_LOADER "Enable QtXdgIconLoader" ON)
 find_package(Qt${QT_VERSION_MAJOR}Xdg)
@@ -131,6 +144,7 @@ add_subdirectory(styleplugins)
 if(CMAKE_BUILD_TYPE_LOWER STREQUAL debug)
   add_subdirectory(styles)
 endif()
-if(BUILD_TESTS)
+if(BUILD_TESTING)
+  enable_testing()
   add_subdirectory(tests)
 endif()
