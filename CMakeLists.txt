@@ -117,8 +117,8 @@ endfunction()
 
 find_package(Dtk${DTK_NAME_SUFFIX} REQUIRED COMPONENTS Widget)
 
-option(ENABLE_QT_XDG_ICON_LOADER "Enable QtXdgIconLoader" ON)
-find_package(Qt${QT_VERSION_MAJOR}Xdg)
+option(ENABLE_QT_XDG_ICON_LOADER "Enable QtXdgIconLoader" On)
+#find_package(Qt${QT_VERSION_MAJOR}Xdg)
 if (NOT Qt${QT_VERSION_MAJOR}Xdg_FOUND)
     message(WARNING " Qt${QT_VERSION_MAJOR}XdgIconLoader Not Found, DISABLE QtXdgIconLoader !")
     set (ENABLE_QT_XDG_ICON_LOADER OFF)
