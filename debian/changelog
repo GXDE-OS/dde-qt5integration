@@ -1,3 +1,9 @@
+qt5integration (6.7.44-gxde1) unstable; urgency=medium
+
+  * Enable DTK5 menu bluring under Treeland and GXWM.
+
+ -- CharOfString <root@charofstring.cc>  Tue, 11 Aug 2026 16:14:02 +0800
+
 qt5integration (6.7.43) unstable; urgency=medium
 
   * Release 6.7.43
