@@ -39,5 +39,7 @@ Makefile*
 
 # QtCtreator CMake
 CMakeLists.txt.user
-
 platformthemeplugin/NUL
+
+# Local Building Scripts
+!build-deb
