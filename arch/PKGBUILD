@@ -1,5 +1,5 @@
 # Maintainer: CharOfString <root@charofstring.cc>
-pkgname=deepin-qt5integration-git
+pkgname=gxde-deepin-qt5integration
 pkgver=6.7.44
 pkgrel=1
 pkgdesc='Qt 5 platform theme integration plugins for DDE (DTK5)'
@@ -7,11 +7,13 @@ arch=('x86_64' 'aarch64')
 url="https://github.com/GXDE-OS/dde-qt5integration"
 license=('LGPL-3.0-or-later' 'LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only')
 # 与 debian/control 相同，运行时需要 dxcb 平台插件 ・ As in debian/control, the dxcb platform plugin is needed at runtime.
-depends=('dtkcore-git' 'dtkgui-git' 'dtkwidget-git' 'deepin-qt5platform-plugins-git' 'qt5-base'
+depends=('gxde-dtkcore' 'gxde-dtkgui' 'gxde-dtkwidget' 'gxde-deepin-qt5platform-plugins' 'qt5-base'
          'qt5-svg' 'qt5-x11extras' 'libqt5xdg' 'libx11' 'libgcc' 'libstdc++' 'glibc')
-makedepends=('git' 'cmake' 'ninja' 'pkgconf' 'qt5-tools' 'dtkcommon-git' 'xcb-util-renderutil' 'mtdev')
-provides=("deepin-qt5integration=$pkgver" 'libqt5deepintheme-plugin')
-conflicts=('deepin-qt5integration' 'libqt5deepintheme-plugin')
+makedepends=('git' 'cmake' 'ninja' 'pkgconf' 'qt5-tools' 'gxde-dtkcommon' 'xcb-util-renderutil' 'mtdev')
+provides=("deepin-qt5integration=$pkgver" 'libqt5deepintheme-plugin'
+          "deepin-qt5integration-git=$pkgver")
+conflicts=('deepin-qt5integration' 'libqt5deepintheme-plugin' 'deepin-qt5integration-git')
+replaces=('deepin-qt5integration-git')
 source=()
 sha512sums=()
 
